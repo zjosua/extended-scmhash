@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Extended scmhash
+# Extended Schema Hash for Anki
 # Copyright: Josua Zbinden - https://github.com/zjosua
 # License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
 
-AES_DEV = False
+ES_DEV = False
 
 from anki.models import ModelManager
 from anki.utils import checksum
 
-if AES_DEV:
+if ES_DEV:
     from aqt import mw
     from aqt.utils import showText
     from aqt.qt import *
@@ -61,7 +61,7 @@ def debug():
         # consoletext += t[fmt] + "\n"
     # print(consoletext)
 
-if AES_DEV:
+if ES_DEV:
     action = QAction("anki-extended-scmhash &Debug", mw)
     action.triggered.connect(debug)
     mw.form.menuTools.addAction(action)
