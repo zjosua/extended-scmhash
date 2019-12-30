@@ -15,6 +15,8 @@ if AES_DEV:
 
 def extscmhash(self, m):
     "Return a hash of parts of the schema, to check model compatibility."
+    _old(self, m)
+
     s = str(m['css'])
     for f in m['flds']:
         s += f['name']
