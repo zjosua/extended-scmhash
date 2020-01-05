@@ -5,6 +5,7 @@
 
 ES_DEV = False
 
+from anki.hooks import wrap
 from anki.models import ModelManager
 from anki.utils import checksum
 
@@ -13,11 +14,11 @@ if ES_DEV:
     from aqt.utils import showText
     from aqt.qt import *
 
-def extscmhash(self, m):
+def extscmhash(self, m, _old):
     "Return a hash of parts of the schema, to check model compatibility."
     _old(self, m)
 
-    s = str(m['css'])
+    s = m['css']
     for f in m['flds']:
         s += f['name']
     for t in m['tmpls']:
@@ -26,7 +27,7 @@ def extscmhash(self, m):
             s += t[fmt]
     return checksum(s)
 
-ModelManager.scmhash = extscmhash
+ModelManager.scmhash = wrap(ModelManager.scmhash, extscmhash, "around")
 
 # Stuff used during development
 ##########################################################################
