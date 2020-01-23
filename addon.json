@@ -1,0 +1,15 @@
+{
+    "display_name": "Extended Schema Hash",
+    "module_name": "extended_schema_hash",
+    "repo_name": "extended-scmhash",
+    "ankiweb_id": "1187737890",
+    "author": "zjosua",
+    "contact": "https://github.com/zjosua",
+    "homepage": "https://github.com/zjosua/extended-scmhash",
+    "copyright_start": 2018,
+    "tags": "importing",
+    "conflicts": [],
+    "targets": [
+        "anki21"
+    ]
+}
